@@ -3,7 +3,7 @@ if (file_exists('cache/index_'.$_GET["page"].'_'.$_GET["id"].'.cache')){
 readfile('cache/index_'.$_GET["page"].'_'.$_GET["id"].'.cache'); exit();} 
 ob_start();
 include("includes/bd.php");
-
+?>
 <!DOCTYPE html>
 <html lang=en>
 <head>
@@ -28,7 +28,6 @@ function logCRP() {
   var stats = document.getElementById("crp-stats");
   stats.textContent = 'DCL: ' + dcl + 'ms, onload: ' + complete + 'ms';
 }
-
 window.addEventListener("load", function(event) {
   logCRP();
 });</script>
@@ -76,7 +75,6 @@ window.addEventListener("load", function(event) {
 </div>
 </body>
 </html>
-?>
 <?php  $buffer = ob_get_contents();
 ob_end_flush(); 
 $fp = fopen('cache/index_'.$_GET["page"].'_'.$_GET["id"].'.cache', 'w'); 
